@@ -1,63 +1,39 @@
 const services = [
   {
-    number: '01',
-    title: 'Lakóépületek',
-    items: ['Családi házak építése', 'Bővítések és felújítások', 'Lépcsőházak modernizálása', 'Szanaszét szigetelés'],
+    title: 'Lakóépítés',
+    text: 'Családi házak, lakóparkok és önkormányzati programok megvalósítása.',
   },
   {
-    number: '02',
-    title: 'Kereskedelmi Projektek',
-    items: ['Irodaházak', 'Bevásárlóközpontok', 'Gyárak és raktárak', 'Logisztikai központok'],
+    title: 'Kereskedelmi beruházások',
+    text: 'Irodák, üzletek és kereskedelmi létesítmények tervezése és kivitelezése.',
   },
   {
-    number: '03',
-    title: 'Felújítás & Helyreállítás',
-    items: ['Tetőcsere', 'Homlokzat felújítás', 'Burkolatok és dekoráció', 'Ajtók és ablakok'],
+    title: 'Felújítás és rekonstrukció',
+    text: 'Homlokzatok, tetők és meglévő épületek komplett modernizációja.',
   },
   {
-    number: '04',
-    title: 'Mérnöki Munkák',
-    items: ['Szerkezeti javítások', 'Erősítési munkák', 'Vasbeton munkák', 'Geodéziai felmérés'],
-  },
-  {
-    number: '05',
-    title: 'Intézmények',
-    items: ['Iskolák és óvodák', 'Kórházak és klinikák', 'Közintézmények', 'Szociális intézmények'],
-  },
-  {
-    number: '06',
-    title: 'Speciális Megoldások',
-    items: ['Fenntartható építés', 'Zöld tetők', 'Köztéri munkák', 'Infrastruktúra projektek'],
+    title: 'Ipari projektek',
+    text: 'Raktárak, gyárak és logisztikai létesítmények racionalizált kivitelezése.',
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="bg-slate-50 py-20 md:py-28">
+    <section id="services" className="bg-white py-20 md:py-28">
       <div className="container-custom">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-bold uppercase tracking-widest text-blue-600">Szolgáltatások</span>
-          <h2 className="mt-3 text-3xl font-black tracking-tight text-blue-900 md:text-5xl">
-            Mit tudunk kínálni
+        <div className="max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-[0.35em] text-blue-700">Szolgáltatások</p>
+          <h2 className="mt-4 text-4xl font-black tracking-[-0.05em] text-slate-900 md:text-5xl">
+            Minden, ami az építéshez kell.
           </h2>
-          <p className="mt-4 text-lg text-slate-700">
-            Széles körű építőipari megoldások, a legkisebb felújítástól az összetett ipari projektekig.
-          </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => (
-            <div key={service.number} className="card bg-white group hover:border-blue-300 hover:shadow-lg transition-all">
-              <div className="text-sm font-black text-blue-200 mb-2">{service.number}</div>
-              <h3 className="text-2xl font-bold text-blue-900 group-hover:text-blue-700 transition">{service.title}</h3>
-              <ul className="mt-4 space-y-2">
-                {service.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-slate-700">
-                    <span className="mt-1.5 inline-block h-2 w-2 rounded-full bg-blue-600 flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {services.map((service, idx) => (
+            <div key={service.title} className="card bg-slate-50 border-slate-200">
+              <div className="text-sm font-black text-blue-700">0{idx + 1}</div>
+              <h3 className="mt-4 text-xl font-bold text-slate-900">{service.title}</h3>
+              <p className="mt-3 text-slate-600 leading-7">{service.text}</p>
             </div>
           ))}
         </div>

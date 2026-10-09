@@ -7,14 +7,14 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-sm shadow-md">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-sm shadow-sm">
       <nav className="container-custom flex h-20 items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="text-3xl">🏢</div>
+          <div className="w-10 h-10 rounded-full bg-blue-950 flex items-center justify-center text-white font-black text-sm">TT</div>
           <div className="flex flex-col leading-tight">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Építőipari</span>
-            <span className="text-2xl font-black tracking-tight text-blue-900">TITÁN-TECH</span>
-            <span className="text-xs font-bold tracking-widest text-blue-900">BAU KFT.</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">Építőipari</span>
+            <span className="text-lg font-black tracking-tight text-blue-900">Titán-Tech</span>
+            <span className="text-[10px] font-bold tracking-[0.25em] text-blue-700">BAU KFT.</span>
           </div>
         </div>
 
@@ -42,10 +42,7 @@ export default function Header() {
               Szolgáltatások
             </Link>
             <Link href="#projects" className="text-sm font-medium text-slate-700 transition hover:text-blue-700">
-              Projektjeink
-            </Link>
-            <Link href="#team" className="text-sm font-medium text-slate-700 transition hover:text-blue-700">
-              Csapatunk
+              Referenciák
             </Link>
             <Link href="#contact" className="text-sm font-medium text-slate-700 transition hover:text-blue-700">
               Kapcsolat
