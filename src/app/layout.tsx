@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Oldal1 | Premium Website',
-  description: 'High-end modern website built with Next.js and Tailwind CSS.',
-  keywords: ['website', 'nextjs', 'tailwind', 'premium'],
+  title: 'BuildCraft | Professzionális Építőipari Cég',
+  description: 'BuildCraft - 15+ év tapasztalat az építőiparban. Lakóép, kereskedelmi és ipari projektek megvalósítása. Ajánlatkérés: +36 1 234 5678',
+  keywords: ['építőipari cég', 'felújítás', 'építkezés', 'projektmenedzselés', 'Budapest'],
 };
 
 export default function RootLayout({

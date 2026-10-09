@@ -4,46 +4,57 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="bg-slate-900 px-4 py-12 text-slate-200 md:px-0">
+    <footer className="bg-slate-900 px-4 py-12 text-slate-300 md:px-0">
       <div className="container-custom">
         <div className="grid gap-10 md:grid-cols-4">
           <div>
-            <div className="text-2xl font-black text-sky-400">Oldal1</div>
+            <div className="flex flex-col">
+              <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Építőipari</span>
+              <span className="text-2xl font-black text-amber-500">BuildCraft</span>
+            </div>
             <p className="mt-4 max-w-xs text-sm leading-6 text-slate-400">
-              High-end web experiences built to impress and convert.
+              15+ év tapasztalat az építőiparban. Megbízható partner az Ön projektjeihez.
             </p>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white">Company</h3>
+            <h3 className="font-bold text-white">Navigáció</h3>
             <ul className="mt-4 space-y-3 text-sm text-slate-400">
-              <li><Link href="#">About</Link></li>
-              <li><Link href="#">Services</Link></li>
-              <li><Link href="#">Work</Link></li>
+              <li><Link href="#about" className="hover:text-amber-400 transition">Rólunk</Link></li>
+              <li><Link href="#services" className="hover:text-amber-400 transition">Szolgáltatások</Link></li>
+              <li><Link href="#projects" className="hover:text-amber-400 transition">Projektjeink</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white">Resources</h3>
+            <h3 className="font-bold text-white">Cég</h3>
             <ul className="mt-4 space-y-3 text-sm text-slate-400">
-              <li><Link href="#">Blog</Link></li>
-              <li><Link href="#">Support</Link></li>
-              <li><Link href="#">Privacy</Link></li>
+              <li><Link href="#team" className="hover:text-amber-400 transition">Csapatunk</Link></li>
+              <li><Link href="#contact" className="hover:text-amber-400 transition">Kapcsolat</Link></li>
+              <li><a href="#" className="hover:text-amber-400 transition">Adatvédelem</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white">Contact</h3>
+            <h3 className="font-bold text-white">Elérhetőségek</h3>
             <ul className="mt-4 space-y-3 text-sm text-slate-400">
-              <li><a href="mailto:hello@oldal1.com">hello@oldal1.com</a></li>
-              <li><a href="tel:+36123456789">+36 1 234 5678</a></li>
-              <li>Budapest, Hungary</li>
+              <li>
+                <a href="tel:+36123456789" className="hover:text-amber-400 transition">
+                  +36 1 234 5678
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@buildcraft.hu" className="hover:text-amber-400 transition">
+                  info@buildcraft.hu
+                </a>
+              </li>
+              <li>Budapest, Stefánia út 42-44.</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-slate-800 pt-6 text-sm text-slate-400">
-          © {year} Oldal1. All rights reserved.
+        <div className="mt-10 border-t border-slate-800 pt-6 text-sm text-slate-500">
+          © {year} BuildCraft Építőipari Kft. | Minden jog fenntartva.
         </div>
       </div>
     </footer>

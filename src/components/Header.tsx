@@ -7,11 +7,12 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-sm">
-      <nav className="container-custom flex h-16 items-center justify-between">
-        <Link href="/" className="text-2xl font-black tracking-tight text-sky-600">
-          Oldal1
-        </Link>
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-sm shadow-sm">
+      <nav className="container-custom flex h-20 items-center justify-between">
+        <div className="flex flex-col leading-tight">
+          <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Építőipari</span>
+          <span className="text-2xl font-black tracking-tight text-amber-700">BuildCraft</span>
+        </div>
 
         <button
           type="button"
@@ -27,20 +28,26 @@ export default function Header() {
         <div
           className={`${
             isOpen ? 'block' : 'hidden'
-          } absolute left-0 right-0 top-16 border-b border-slate-200 bg-white md:static md:flex md:items-center md:gap-8 md:border-none md:bg-transparent md:!block`}
+          } absolute left-0 right-0 top-20 border-b border-slate-200 bg-white md:static md:flex md:items-center md:gap-8 md:border-none md:bg-transparent md:!block`}
         >
           <div className="container-custom flex flex-col gap-2 py-4 md:flex-row md:items-center md:gap-8 md:py-0">
-            <Link href="#features" className="text-sm font-medium text-slate-700 transition hover:text-sky-600">
-              Features
+            <Link href="#about" className="text-sm font-medium text-slate-700 transition hover:text-amber-600">
+              Rólunk
             </Link>
-            <Link href="#testimonials" className="text-sm font-medium text-slate-700 transition hover:text-sky-600">
-              Testimonials
+            <Link href="#services" className="text-sm font-medium text-slate-700 transition hover:text-amber-600">
+              Szolgáltatások
             </Link>
-            <Link href="#contact" className="text-sm font-medium text-slate-700 transition hover:text-sky-600">
-              Contact
+            <Link href="#projects" className="text-sm font-medium text-slate-700 transition hover:text-amber-600">
+              Projektjeink
+            </Link>
+            <Link href="#team" className="text-sm font-medium text-slate-700 transition hover:text-amber-600">
+              Csapatunk
+            </Link>
+            <Link href="#contact" className="text-sm font-medium text-slate-700 transition hover:text-amber-600">
+              Kapcsolat
             </Link>
             <button type="button" className="btn-primary mt-2 md:mt-0">
-              Get Started
+              Ajánlatkérés
             </button>
           </div>
         </div>

@@ -1,34 +1,53 @@
-# Oldal1
+# BuildCraft - Professzionális Építőipari Cég
 
-A premium modern landing page built with Next.js and Tailwind CSS.
+BuildCraft egy megbízható építőipari vállalkozás, amely több mint 15 év tapasztalattal rendelkezik a lakóépületek,
+kereskedelmi projektek és ipari megoldások terén. A mi küldetésünk: magas minőségű építési megoldások nyújtása,
+pontos ütemtervek betartása, és a legtöbb ügyfél-elégedettség elérése.
 
-## Features
+## Jellemzők
 
-- Responsive design
-- Premium UI styling
-- Mobile-first layout
-- Accessible navigation and typography
-- Fast, production-ready Next.js setup
+- **15+ év tapasztalat** az építőiparban
+- **250+ befejezett projekt** portfólió
+- **98% ügyfél-elégedettség** aránya
+- **Professzionális csapat** szakértő mérnökökkel és projektvezetőkkel
+- Lakó-, kereskedelmi és ipari projektek
+- Speciális megoldások és felújítások
+- Teljes projektmenedzselés és felügyelet
 
-## Getting started
+## Szolgáltatások
+
+- 🏘️ Lakóépületek (családi házak, lakóparkok)
+- 🏗️ Kereskedelmi projektek (irodaházak, bevásárlóközpontok)
+- 🔧 Felújítás és helyreállítás
+- ⚙️ Mérnöki munkák
+- 🏛️ Közintézmények
+- 🌿 Speciális megoldások és zöld infrastruktúra
+
+## Gyors indulás
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open http://localhost:3000 to view the site.
+Nyisd meg a http://localhost:3000 oldalt a böngészőben.
 
-## Production build
+## Termelési felépítés
 
 ```bash
 npm run build
 npm run start
 ```
 
-## Tech stack
+## Technológiai stack
 
-- Next.js 14
-- React 18
-- TypeScript
-- Tailwind CSS 3
+- **Next.js 14** - React framework
+- **TypeScript** - Típusbiztonság
+- **Tailwind CSS** - Stíluskészítés
+- **Responsive Design** - Mobilbarát megoldások
+
+## Kapcsolat
+
+- 📞 Telefon: +36 1 234 5678
+- ✉️ Email: info@buildcraft.hu
+- 📍 Cím: Budapest, Stefánia út 42-44.
