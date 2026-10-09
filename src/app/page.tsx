@@ -1,53 +1,71 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+'use client';
 
-:root {
-  color-scheme: light;
-}
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
-html {
-  scroll-behavior: smooth;
-}
+export default function LoadingScreen() {
+  const [isLoading, setIsLoading] = useState(true);
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: #ffffff;
-  color: #111827;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1700);
+    return () => clearTimeout(timer);
+  }, []);
 
-* {
-  box-sizing: border-box;
-}
+  if (!isLoading) return null;
 
-@layer components {
-  .container-custom {
-    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
-  }
+  return (
+    <motion.div
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 0 }}
+      transition={{ duration: 0.8, delay: 0.8 }}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0b0d0f]"
+    >
+      <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
+        >
+          <div className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-[#d8c1a2]/20 bg-[#d8c1a2]/5 text-xl font-black text-white shadow-[0_20px_50px_rgba(216,193,162,0.08)]">
+            TT
+          </div>
+        </motion.div>
 
-  .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-[#081b34] px-6 py-3 text-sm font-bold text-white shadow-[0_18px_40px_rgba(8,27,52,0.18)] transition hover:bg-[#0d2343] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
-  }
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.6 }}
+          className="text-4xl font-black tracking-[-0.06em] text-white md:text-5xl"
+        >
+          Titán-Tech
+        </motion.h1>
 
-  .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
-  }
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="mt-3 text-[10px] font-bold uppercase tracking-[0.32em] text-[#d8c1a2]"
+        >
+          Bau Kft.
+        </motion.p>
 
-  .card {
-    @apply rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
-  }
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.45, duration: 0.6 }}
+          className="mt-8 flex justify-center gap-2"
+        >
+          {[0, 1, 2].map((index) => (
+            <motion.div
+              key={index}
+              animate={{ scaleY: [0.5, 1, 0.5] }}
+              transition={{ duration: 1, repeat: Infinity, delay: index * 0.18 }}
+              className="h-8 w-2 rounded-full bg-[#d8c1a2]"
+            />
+          ))}
+        </motion.div>
+      </div>
+    </motion.div>
+  );
 }

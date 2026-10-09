@@ -1,113 +1,81 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 
-export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+const projects = [
+  {
+    title: 'Luxus lakópark',
+    type: 'Lakóépítés',
+    year: '2024',
+    description: 'Modern családi házak és közösségi terek környezetbarát, precíz kialakítással.',
+    gradient: 'from-[#d1b28a] via-[#b7895e] to-[#5f4837]',
+  },
+  {
+    title: 'Irodaház rekonstrukció',
+    type: 'Kereskedelmi',
+    year: '2023',
+    description: 'Homlokzati felújítás és belső átalakítás a modern üzleti működéshez.',
+    gradient: 'from-[#c7b7a2] via-[#8c7a66] to-[#2d2b2a]',
+  },
+  {
+    title: 'Logisztikai centrum',
+    type: 'Ipari',
+    year: '2022',
+    description: 'Hatékony raktári és szállítási infrastruktúra, teljesítményre optimalizálva.',
+    gradient: 'from-[#d9d3c8] via-[#8d7d69] to-[#2a2a2d]',
+  },
+];
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-  };
-
+export default function Projects() {
   return (
-    <section id="contact" className="section-shell bg-[#0d1320]">
+    <section id="projects" className="section-shell bg-[#0b0d0f]">
       <div className="container-custom">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <div className="eyebrow">Kapcsolat</div>
-            <h2 className="mt-6 text-4xl font-black leading-[1.04] tracking-[-0.07em] text-white md:text-6xl">
-              Kérjen ingyenes ajánlatot.
-            </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: '-80px' }}
+          className="mb-12"
+        >
+          <div className="eyebrow">Referenciák</div>
+          <h2 className="mt-6 text-4xl font-black leading-[1.04] tracking-[-0.07em] text-white md:text-6xl">
+            Képesítésünk, száraz tényekkel.
+          </h2>
+        </motion.div>
 
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-              Bármilyen kérdése van, szívesen egyeztetünk a projekt kapcsán és megadjuk az optimális
-              megoldást az Ön igényeihez.
-            </p>
-
-            <div className="mt-10 space-y-6">
-              <div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Telefon</div>
-                <a href="tel:+36123456789" className="mt-2 inline-block text-lg font-medium text-white hover:text-blue-200">
-                  +36 1 234 5678
-                </a>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <motion.article
+              key={project.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.08, duration: 0.7 }}
+              viewport={{ once: true, margin: '-80px' }}
+              className="group overflow-hidden rounded-[1.8rem] border border-[#d8c1a2]/10 bg-[#12171b]"
+            >
+              <div className={`flex h-64 items-end bg-gradient-to-br ${project.gradient} p-7`}>
+                <div className="w-full">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">
+                    {project.type}
+                  </div>
+                  <h3 className="mt-3 text-3xl font-black text-white">{project.title}</h3>
+                </div>
               </div>
 
-              <div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Email</div>
-                <a href="mailto:info@titantech.hu" className="mt-2 inline-block text-lg font-medium text-white hover:text-blue-200">
-                  info@titantech.hu
-                </a>
+              <div className="p-7">
+                <p className="text-base leading-8 text-[#c7c0b9]">{project.description}</p>
+
+                <div className="mt-6 flex items-center justify-between border-t border-[#d8c1a2]/10 pt-4">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d4b796]">
+                    {project.year}
+                  </span>
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d8c1a2]/15 bg-[#d8c1a2]/5 text-lg text-white">
+                    →
+                  </div>
+                </div>
               </div>
-
-              <div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Cím</div>
-                <div className="mt-2 text-lg font-medium text-white">Budapest, Bérc utca 8-10.</div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.form
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            viewport={{ once: true, margin: '-80px' }}
-            onSubmit={handleSubmit}
-            className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6"
-          >
-            <div className="grid gap-4 sm:grid-cols-2">
-              <input
-                type="text"
-                placeholder="Név"
-                required
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-300 focus:border-blue-400 focus:outline-none"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                required
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-300 focus:border-blue-400 focus:outline-none"
-              />
-            </div>
-
-            <div className="mt-4">
-              <input
-                type="text"
-                placeholder="Projekt típusa"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-300 focus:border-blue-400 focus:outline-none"
-              />
-            </div>
-
-            <div className="mt-4">
-              <textarea
-                rows={5}
-                placeholder="Üzenet"
-                required
-                className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-300 focus:border-blue-400 focus:outline-none"
-              />
-            </div>
-
-            {submitted && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-100"
-              >
-                Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.
-              </motion.div>
-            )}
-
-            <button type="submit" className="btn-primary mt-5 w-full">
-              Küldés
-            </button>
-          </motion.form>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

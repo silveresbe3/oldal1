@@ -1,60 +1,115 @@
 'use client';
 
-import Link from 'next/link';
+import { FormEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const links = [
-  { label: 'Rólunk', href: '#about' },
-  { label: 'Szolgáltatások', href: '#services' },
-  { label: 'Projektek', href: '#projects' },
-  { label: 'Kapcsolat', href: '#contact' },
-];
+export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
 
-export default function Footer() {
-  const year = new Date().getFullYear();
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 5000);
+  };
 
   return (
-    <motion.footer
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true, margin: '-80px' }}
-      className="border-t border-white/10 bg-[#090d14] py-12"
-    >
+    <section id="contact" className="section-shell bg-[#111517]">
       <div className="container-custom">
-        <div className="grid gap-8 md:grid-cols-4">
-          <div>
-            <h3 className="text-xl font-black text-white">Titán-Tech</h3>
-            <p className="mt-2 text-sm text-slate-400">Bau Kft.</p>
-          </div>
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, margin: '-80px' }}
+          >
+            <div className="eyebrow">Kapcsolat</div>
+            <h2 className="mt-6 text-4xl font-black leading-[1.04] tracking-[-0.07em] text-white md:text-6xl">
+              Kérjen ingyenes ajánlatot.
+            </h2>
 
-          {links.map((link) => (
-            <div key={link.href}>
-              <h4 className="mb-4 text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
-                Linkek
-              </h4>
-              <Link href={link.href} className="block text-sm text-slate-300 transition hover:text-white">
-                {link.label}
-              </Link>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-[#c7c0b9]">
+              Bármilyen kérdése van, szívesen egyeztetünk a projekt kapcsán és megadjuk az optimális
+              megoldást az Ön igényeihez.
+            </p>
+
+            <div className="mt-10 space-y-6">
+              <div>
+                <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8c1a2]">Telefon</div>
+                <a href="tel:+36123456789" className="mt-2 inline-block text-lg font-medium text-white hover:text-[#d8c1a2]">
+                  +36 1 234 5678
+                </a>
+              </div>
+
+              <div>
+                <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8c1a2]">Email</div>
+                <a href="mailto:info@titantech.hu" className="mt-2 inline-block text-lg font-medium text-white hover:text-[#d8c1a2]">
+                  info@titantech.hu
+                </a>
+              </div>
+
+              <div>
+                <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d8c1a2]">Cím</div>
+                <div className="mt-2 text-lg font-medium text-white">Budapest, Bérc utca 8-10.</div>
+              </div>
             </div>
-          ))}
-        </div>
+          </motion.div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-          <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
-            © {year} Titán-Tech Bau Kft.
-          </div>
+          <motion.form
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            onSubmit={handleSubmit}
+            className="rounded-[1.75rem] border border-[#d8c1a2]/10 bg-[#171d22] p-6"
+          >
+            <div className="grid gap-4 sm:grid-cols-2">
+              <input
+                type="text"
+                placeholder="Név"
+                required
+                className="w-full rounded-xl border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                className="w-full rounded-xl border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
+              />
+            </div>
 
-          <div className="flex gap-6">
-            <Link href="#" className="text-sm text-slate-300 transition hover:text-white">
-              Adatvédelmi politika
-            </Link>
-            <Link href="#" className="text-sm text-slate-300 transition hover:text-white">
-              Felhasználási feltételek
-            </Link>
-          </div>
+            <div className="mt-4">
+              <input
+                type="text"
+                placeholder="Projekt típusa"
+                className="w-full rounded-xl border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
+              />
+            </div>
+
+            <div className="mt-4">
+              <textarea
+                rows={5}
+                placeholder="Üzenet"
+                required
+                className="w-full resize-none rounded-xl border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
+              />
+            </div>
+
+            {submitted && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-100"
+              >
+                Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.
+              </motion.div>
+            )}
+
+            <button type="submit" className="btn-primary mt-5 w-full">
+              Küldés
+            </button>
+          </motion.form>
         </div>
       </div>
-    </motion.footer>
+    </section>
   );
 }

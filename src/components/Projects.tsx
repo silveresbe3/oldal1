@@ -2,33 +2,32 @@
 
 import { motion } from 'framer-motion';
 
-const projects = [
+const services = [
   {
-    title: 'Luxus lakópark',
-    type: 'Lakóépítés',
-    year: '2024',
-    description: 'Modern családi házak és közösségi terek környezetbarát, precíz kialakítással.',
-    gradient: 'from-[#6ca8ff] via-[#4d7cff] to-[#2249ad]',
+    title: 'Lakóépítés',
+    text: 'Családi házak, lakóparkok és energiahatékony lakóprojektek precíz kivitelezése.',
+    icon: '01',
   },
   {
-    title: 'Irodaház rekonstrukció',
-    type: 'Kereskedelmi',
-    year: '2023',
-    description: 'Homlokzati felújítás és belső átalakítás a modern üzleti működéshez.',
-    gradient: 'from-[#5ae0ba] via-[#17a085] to-[#0a5b4e]',
+    title: 'Kereskedelmi létesítmények',
+    text: 'Irodaházak, üzlethelyiségek és vállalati beruházások funkcionális kialakítása.',
+    icon: '02',
   },
   {
-    title: 'Logisztikai centrum',
-    type: 'Ipari',
-    year: '2022',
-    description: 'Hatékony raktári és szállítási infrastruktúra, teljesítményre optimalizálva.',
-    gradient: 'from-[#d9c38c] via-[#b38d4a] to-[#5d4120]',
+    title: 'Felújítás & rekonstrukció',
+    text: 'Homlokzatok, belső terek és meglévő épületek modernizálása új értékkel.',
+    icon: '03',
+  },
+  {
+    title: 'Ipari kivitelezés',
+    text: 'Raktári, logisztikai és gyártási projektek gyors, ellenőrzött megvalósítása.',
+    icon: '04',
   },
 ];
 
-export default function Projects() {
+export default function Services() {
   return (
-    <section id="projects" className="section-shell bg-[#090d14]">
+    <section id="services" className="section-shell bg-[#0d1013]">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -37,44 +36,30 @@ export default function Projects() {
           viewport={{ once: true, margin: '-80px' }}
           className="mb-12"
         >
-          <div className="eyebrow">Referenciák</div>
+          <div className="eyebrow">Szolgáltatások</div>
           <h2 className="mt-6 text-4xl font-black leading-[1.04] tracking-[-0.07em] text-white md:text-6xl">
-            Képesítésünk, száraz tényekkel.
+            Minden, ami az építéshez kell.
           </h2>
         </motion.div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.title}
+        <div className="grid gap-6 md:grid-cols-2">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.08, duration: 0.7 }}
               viewport={{ once: true, margin: '-80px' }}
-              className="group overflow-hidden rounded-[1.8rem] border border-white/10 bg-white/5"
+              className="group rounded-[1.75rem] border border-[#d8c1a2]/10 bg-[#12171b] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#d8c1a2]/25 hover:bg-[#171d22]"
             >
-              <div className={`flex h-64 items-end bg-gradient-to-br ${project.gradient} p-7`}>
-                <div className="w-full">
-                  <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">
-                    {project.type}
-                  </div>
-                  <h3 className="mt-3 text-3xl font-black text-white">{project.title}</h3>
-                </div>
+              <div className="mb-5 flex items-center justify-between">
+                <div className="text-xs font-bold uppercase tracking-[0.3em] text-[#d8c1a2]">{service.icon}</div>
+                <div className="h-10 w-10 rounded-full border border-[#d8c1a2]/15 bg-[#d8c1a2]/5" />
               </div>
 
-              <div className="p-7">
-                <p className="text-base leading-8 text-slate-300">{project.description}</p>
-
-                <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">
-                    {project.year}
-                  </span>
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg text-white">
-                    →
-                  </div>
-                </div>
-              </div>
-            </motion.article>
+              <h3 className="text-2xl font-black text-white">{service.title}</h3>
+              <p className="mt-4 text-base leading-8 text-[#c7c0b9]">{service.text}</p>
+            </motion.div>
           ))}
         </div>
       </div>

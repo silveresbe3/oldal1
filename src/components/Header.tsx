@@ -1,100 +1,111 @@
-'use client';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+:root {
+  --bg: #0b0d0f;
+  --bg-soft: #12171b;
+  --panel: rgba(18, 21, 25, 0.82);
+  --panel-strong: rgba(13, 15, 18, 0.94);
+  --line: rgba(211, 191, 167, 0.18);
+  --text: #f3efe8;
+  --muted: #b9b0a5;
+  --primary: #d8c1a2;
+  --accent: #c28d5d;
+  --accent-strong: #d9b07d;
+  --gold: #d5b585;
+}
 
-const navItems = [
-  { href: '#about', label: 'Rólunk' },
-  { href: '#services', label: 'Szolgáltatások' },
-  { href: '#projects', label: 'Projektek' },
-  { href: '#contact', label: 'Kapcsolat' },
-];
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+html {
+  scroll-behavior: smooth;
+}
 
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 12);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(194, 141, 93, 0.12), transparent 18%),
+    radial-gradient(circle at bottom right, rgba(216, 193, 162, 0.08), transparent 20%),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
 
-  return (
-    <motion.header
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'border-b border-white/10 bg-[#0c121d]/80 backdrop-blur-xl' : 'bg-transparent'
-      }`}
-    >
-      <nav className="container-custom flex h-20 items-center justify-between">
-        <Link href="#top" className="group flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm font-black text-white shadow-[0_10px_30px_rgba(255,255,255,0.06)]">
-            TT
-          </div>
-          <div className="leading-tight">
-            <div className="text-[10px] font-bold uppercase tracking-[0.32em] text-slate-300">Titán-Tech</div>
-            <div className="text-sm font-black tracking-[-0.04em] text-white">Bau Kft.</div>
-          </div>
-        </Link>
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
 
-        <div className="hidden items-center gap-10 lg:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-slate-200 transition-colors duration-300 hover:text-white"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
+a {
+  text-decoration: none;
+}
 
-        <div className="flex items-center gap-4">
-          <Link href="#contact" className="hidden btn-primary sm:inline-flex">
-            Ajánlatkérés
-          </Link>
+button,
+input,
+textarea {
+  font: inherit;
+}
 
-          <button
-            type="button"
-            aria-label="Open menu"
-            aria-expanded={isOpen}
-            className="rounded-lg p-2 text-slate-200 transition-colors duration-300 hover:bg-white/5 lg:hidden"
-            onClick={() => setIsOpen((prev) => !prev)}
-          >
-            <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-            </svg>
-          </button>
-        </div>
-      </nav>
+::selection {
+  background: rgba(194, 141, 93, 0.3);
+  color: #fff;
+}
 
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="border-t border-white/10 bg-[#0d1320]/95 backdrop-blur-xl lg:hidden"
-        >
-          <div className="container-custom flex flex-col gap-4 py-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-slate-200 transition hover:text-white"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link href="#contact" className="btn-primary mt-2 w-full" onClick={() => setIsOpen(false)}>
-              Ajánlatkérés
-            </Link>
-          </div>
-        </motion.div>
-      )}
-    </motion.header>
-  );
+@layer components {
+  .container-custom {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-shell {
+    @apply relative overflow-hidden py-20 md:py-32;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-[#d8c1a2]/20 bg-[#d8c1a2]/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.32em] text-[#e9d8be];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-[#d8c1a2] px-7 py-3.5 text-sm font-semibold text-[#101214] shadow-[0_18px_40px_rgba(216,193,162,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e5d0b0] focus:outline-none focus:ring-2 focus:ring-[#d8c1a2]/70;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-[#d8c1a2]/20 bg-white/3 px-7 py-3.5 text-sm font-semibold text-[#f3efe8] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d8c1a2]/40 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-[#d8c1a2]/40;
+  }
+
+  .panel {
+    @apply rounded-[1.75rem] border border-[#d8c1a2]/15 bg-[#12171b]/80 backdrop-blur-sm;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
