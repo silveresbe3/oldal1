@@ -1,61 +1,59 @@
-export default function Hero() {
+'use client';
+
+import { useEffect, useState } from 'react';
+
+export default function LoadingScreen() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2400);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isLoading) return null;
+
   return (
-    <section className="relative overflow-hidden bg-white py-18 md:py-24">
-      <div className="container-custom grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="z-10">
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-blue-700">TITÁN-TECH BAU KFT.</p>
-          <h1 className="text-5xl font-black leading-[0.95] tracking-[-0.06em] text-slate-900 md:text-7xl">
-            Tiszta építkezés.<br />
-            Megbízható partner.
-          </h1>
-          <p className="mt-6 max-w-xl text-base leading-8 text-slate-600 md:text-lg">
-            Vállaljuk a lakó-, kereskedelmi és ipari építési beruházások teljes körű kivitelezését.
-            Szakértelem, precizitás és hosszú távú minőség a projekt minden szakaszában.
-          </p>
-
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <button type="button" className="btn-primary">Ajánlatkérés</button>
-            <button type="button" className="btn-secondary">Referenciák</button>
-          </div>
-
-          <div className="mt-10 flex gap-8 text-sm text-slate-600">
-            <div>
-              <div className="text-2xl font-black text-blue-900">300+</div>
-              <div>projekt</div>
-            </div>
-            <div>
-              <div className="text-2xl font-black text-blue-900">20+</div>
-              <div>év tapasztalat</div>
-            </div>
-            <div>
-              <div className="text-2xl font-black text-blue-900">99%</div>
-              <div>elégedettség</div>
-            </div>
-          </div>
+    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-[#f7f9fc]">
+      <div className="text-center">
+        <div className="animate-fadeIn text-5xl font-black tracking-[-0.08em] text-[#081b34] md:text-6xl">
+          TITÁN-TECH
+        </div>
+        <div className="animate-fadeIn delay-100 mt-2 text-xl font-bold uppercase tracking-[0.35em] text-blue-700 md:text-2xl">
+          BAU KFT.
         </div>
 
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-100/80 to-slate-100/50 blur-3xl" />
-          <div className="relative rounded-[2rem] border border-slate-200 bg-white p-5 shadow-[0_30px_80px_rgba(15,23,42,0.08)]">
-            <div className="overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-slate-100 to-blue-50 p-4">
-              <svg viewBox="0 0 600 520" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="120" y="120" width="220" height="260" rx="6" fill="#001b4a"/>
-                <rect x="150" y="150" width="40" height="200" fill="#f8fafc" opacity="0.9"/>
-                <rect x="210" y="150" width="40" height="200" fill="#1d4ed8" opacity="0.9"/>
-                <rect x="270" y="150" width="40" height="200" fill="#93c5fd" opacity="0.9"/>
-                <path d="M80 210H120V380H80V210Z" fill="#dbeafe"/>
-                <path d="M340 210H380V380H340V210Z" fill="#dbeafe"/>
-                <path d="M90 182L180 120H260L350 182" stroke="#001b4a" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M210 110L290 50L400 150" stroke="#1d4ed8" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M390 220H520V370H390V220Z" fill="#001b4a"/>
-                <rect x="410" y="240" width="90" height="120" fill="#dbeafe"/>
-                <path d="M140 380H480" stroke="#0f172a" strokeWidth="16" strokeLinecap="round"/>
-                <path d="M200 380V460H380V380" stroke="#0f172a" strokeWidth="16" strokeLinecap="round"/>
-              </svg>
-            </div>
+        <div className="mt-8 flex justify-center">
+          <div className="animate-bounce-soft h-20 w-20 md:h-24 md:w-24">
+            <svg viewBox="0 0 220 220" className="h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M35 150V95L110 45L185 95V150" stroke="#081b34" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M70 150V118H150V150" stroke="#081b34" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M95 102H125V118H95V102Z" fill="#1d4ed8"/>
+              <path d="M50 150H170" stroke="#081b34" strokeWidth="10" strokeLinecap="round"/>
+              <path d="M70 94L110 64L150 94" stroke="#1d4ed8" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
         </div>
       </div>
-    </section>
+
+      <style>{`
+        @keyframes fadeIn {
+          0% { opacity: 0; transform: translateY(10px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.8s ease-out both;
+        }
+        .delay-100 {
+          animation-delay: 0.15s;
+        }
+        @keyframes bounceSoft {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-8px); }
+        }
+        .animate-bounce-soft {
+          animation: bounceSoft 1.2s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
   );
 }

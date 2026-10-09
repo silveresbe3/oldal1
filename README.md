@@ -1,27 +1,20 @@
-# Titán-Tech Bau Kft.
+import type { Metadata } from 'next';
+import './globals.css';
 
-A Titán-Tech Bau Kft. egy modern, professzionális építőipari vállalkozás, mely a lakó-, kereskedelmi és ipari projektek teljes körű kivitelezését vállalja.
+export const metadata: Metadata = {
+  title: 'Titán-Tech Bau Kft. | Építőipari kivitelezés',
+  description: 'Titán-Tech Bau Kft. - építőipari kivitelezés, lakó-, kereskedelmi és ipari projektek, megbízható minőséggel.',
+  keywords: ['Titán-Tech Bau Kft.', 'építőipari cég', 'lakóépítés', 'felújítás', 'Budapest'],
+};
 
-## Jellemzők
-
-- Profeszionális és megbízható kivitelezés
-- Tiszta, modern és minimalista design
-- Résponsív és felhasználóbarát weboldal
-- Loading screen animáció a cég nevével
-- Ajánlatkérés és kapcsolatfelvételi forma
-
-## Gyors indulás
-
-```bash
-npm install
-npm run dev
-```
-
-Nyisd meg a http://localhost:3000 oldalt a böngészőben.
-
-## Technológiai stack
-
-- Next.js 14
-- TypeScript
-- Tailwind CSS
-- React 18
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="hu">
+      <body>{children}</body>
+    </html>
+  );
+}

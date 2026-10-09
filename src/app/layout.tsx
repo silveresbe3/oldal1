@@ -1,20 +1,25 @@
-import type { Metadata } from 'next';
-import './globals.css';
+import Header from '@/components/Header';
+import LoadingScreen from '@/components/LoadingScreen';
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import Services from '@/components/Services';
+import Projects from '@/components/Projects';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
 
-export const metadata: Metadata = {
-  title: 'Titán-Tech Bau Kft. | Építőipari kivitelezés',
-  description: 'Titán-Tech Bau Kft. - századokhoz méltó építkezés, precizitás, minőség és megbízható kivitelezés.',
-  keywords: ['Titán-Tech', 'építőipari kivitelezés', 'lakóépítés', 'felújítás', 'Budapest'],
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function HomePage() {
   return (
-    <html lang="hu">
-      <body>{children}</body>
-    </html>
+    <>
+      <LoadingScreen />
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Projects />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }

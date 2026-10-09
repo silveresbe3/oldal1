@@ -1,25 +1,53 @@
-import Header from '@/components/Header';
-import LoadingScreen from '@/components/LoadingScreen';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import Projects from '@/components/Projects';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-export default function HomePage() {
-  return (
-    <>
-      <LoadingScreen />
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-    </>
-  );
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #111827;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-[#081b34] px-6 py-3 text-sm font-bold text-white shadow-[0_18px_40px_rgba(8,27,52,0.18)] transition hover:bg-[#0d2343] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
+  }
+
+  .card {
+    @apply rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

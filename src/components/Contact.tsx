@@ -1,46 +1,56 @@
-export default function Contact() {
-  return (
-    <section id="contact" className="bg-[#071b33] py-20 md:py-28">
-      <div className="container-custom grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.35em] text-blue-300">Kapcsolat</p>
-          <h2 className="mt-4 text-4xl font-black tracking-[-0.05em] text-white md:text-5xl">
-            Kérjen ingyenes ajánlatot.
-          </h2>
-          <p className="mt-4 text-blue-100 leading-7">
-            Ha meglátogatná, vagy egyszerűen csak fel szeretné kérni a személyreszabott ajánlatunkat,
-            írjon nekünk és visszajelzést adunk a projekthez leginkább megfelelő megoldásról.
-          </p>
+const projects = [
+  {
+    title: 'Luxus lakópark',
+    type: 'Lakóépület',
+    text: 'Modern családi házak, közösségi terek és zöld infrastruktúra.',
+    year: '2024',
+  },
+  {
+    title: 'Irodaház rekonstrukció',
+    type: 'Kereskedelmi',
+    text: 'Teljes homlokzat és belső felújítás modern üzleti igényekre.',
+    year: '2023',
+  },
+  {
+    title: 'Logisztikai központ',
+    type: 'Ipari',
+    text: 'Raktár és szállítási infrastruktúra, gyors kivitelezéssel.',
+    year: '2022',
+  },
+  {
+    title: 'Közösségi épület',
+    type: 'Intézmény',
+    text: 'Óvoda és közösségi épület, funkcionalitás és tartósság.',
+    year: '2021',
+  },
+];
 
-          <div className="mt-10 space-y-5 text-blue-100">
-            <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-blue-300">Telefon</div>
-              <a href="tel:+36123456789" className="mt-2 inline-block text-lg font-bold text-white">+36 1 234 5678</a>
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-blue-300">Email</div>
-              <a href="mailto:info@titantech.hu" className="mt-2 inline-block text-lg font-bold text-white">info@titantech.hu</a>
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-blue-300">Cím</div>
-              <div className="mt-2 text-lg font-bold text-white">Budapest, Bérc utca 8-10.</div>
-            </div>
-          </div>
+export default function Projects() {
+  return (
+    <section id="projects" className="bg-slate-100 py-20 md:py-28">
+      <div className="container-custom">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-blue-700">Referenciák</p>
+          <h2 className="mt-4 text-4xl font-black tracking-[-0.06em] text-[#081b34] md:text-5xl">
+            Sikeres projektek, száraz tényekkel.
+          </h2>
         </div>
 
-        <form className="rounded-[2rem] bg-white p-6 shadow-2xl">
-          <div className="grid gap-4 md:grid-cols-2">
-            <input type="text" placeholder="Név" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 placeholder-slate-400 focus:border-blue-500 focus:outline-none" />
-            <input type="email" placeholder="Email" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 placeholder-slate-400 focus:border-blue-500 focus:outline-none" />
-          </div>
-          <div className="mt-4">
-            <input type="text" placeholder="Projekt típusa" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 placeholder-slate-400 focus:border-blue-500 focus:outline-none" />
-          </div>
-          <div className="mt-4">
-            <textarea rows={6} placeholder="Projekt leírása" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 placeholder-slate-400 focus:border-blue-500 focus:outline-none" />
-          </div>
-          <button type="submit" className="mt-5 w-full btn-primary">Ajánlat kérés</button>
-        </form>
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {projects.map((project) => (
+            <article key={project.title} className="card overflow-hidden border-slate-200 bg-white p-0">
+              <div className="flex h-52 items-center justify-center bg-[linear-gradient(135deg,#dbeafe_0%,#f8fafc_40%,#bfdbfe_100%)] text-5xl font-black text-[#081b34]">
+                {project.title.charAt(0)}
+              </div>
+              <div className="p-5">
+                <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-blue-700">{project.type}</div>
+                <h3 className="mt-3 text-xl font-bold text-[#081b34]">{project.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{project.text}</p>
+                <div className="mt-4 text-xs font-bold uppercase tracking-[0.25em] text-slate-500">{project.year}</div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
