@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0b0d0f;
-  --bg-soft: #12171b;
-  --panel: rgba(18, 21, 25, 0.82);
-  --panel-strong: rgba(13, 15, 18, 0.94);
-  --line: rgba(211, 191, 167, 0.18);
-  --text: #f3efe8;
+  --bg: #0a0c0e;
+  --bg-soft: #111518;
+  --panel: rgba(15, 18, 22, 0.82);
+  --panel-strong: rgba(12, 14, 17, 0.94);
+  --line: rgba(211, 191, 167, 0.16);
+  --text: #f2efe9;
   --muted: #b9b0a5;
   --primary: #d8c1a2;
   --accent: #c28d5d;
@@ -30,8 +30,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(194, 141, 93, 0.12), transparent 18%),
-    radial-gradient(circle at bottom right, rgba(216, 193, 162, 0.08), transparent 20%),
+    radial-gradient(circle at top left, rgba(194, 141, 93, 0.09), transparent 18%),
+    radial-gradient(circle at bottom right, rgba(216, 193, 162, 0.06), transparent 20%),
     var(--bg);
   color: var(--text);
   font-family: Inter, 'Segoe UI', sans-serif;
@@ -57,7 +57,7 @@ textarea {
 }
 
 ::selection {
-  background: rgba(194, 141, 93, 0.3);
+  background: rgba(194, 141, 93, 0.28);
   color: #fff;
 }
 
@@ -75,15 +75,15 @@ textarea {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-[#d8c1a2] px-7 py-3.5 text-sm font-semibold text-[#101214] shadow-[0_18px_40px_rgba(216,193,162,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e5d0b0] focus:outline-none focus:ring-2 focus:ring-[#d8c1a2]/70;
+    @apply inline-flex items-center justify-center rounded-[0.75rem] bg-[#d8c1a2] px-7 py-3.5 text-sm font-semibold text-[#101214] shadow-[0_18px_40px_rgba(216,193,162,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e5d0b0] focus:outline-none focus:ring-2 focus:ring-[#d8c1a2]/70;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-[#d8c1a2]/20 bg-white/3 px-7 py-3.5 text-sm font-semibold text-[#f3efe8] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d8c1a2]/40 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-[#d8c1a2]/40;
+    @apply inline-flex items-center justify-center rounded-[0.75rem] border border-[#d8c1a2]/20 bg-white/3 px-7 py-3.5 text-sm font-semibold text-[#f3efe8] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#d8c1a2]/40 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-[#d8c1a2]/40;
   }
 
   .panel {
-    @apply rounded-[1.75rem] border border-[#d8c1a2]/15 bg-[#12171b]/80 backdrop-blur-sm;
+    @apply rounded-[1.5rem] border border-[#d8c1a2]/15 bg-[#12171b]/80 backdrop-blur-sm;
   }
 }
 
