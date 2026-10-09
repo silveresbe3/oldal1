@@ -5,91 +5,73 @@ import { motion } from 'framer-motion';
 const projects = [
   {
     title: 'Luxus lakópark',
-    category: 'Lakóépítés',
+    type: 'Lakóépítés',
     year: '2024',
-    description:
-      'Modern családi házak, közösségi terek és a környező természetes környezethez illeszkedő zöld infrastruktúra.',
-    color: 'from-blue-400 to-blue-600',
+    description: 'Modern családi házak és közösségi terek környezetbarát, precíz kialakítással.',
+    gradient: 'from-[#6ca8ff] via-[#4d7cff] to-[#2249ad]',
   },
   {
     title: 'Irodaház rekonstrukció',
-    category: 'Kereskedelmi',
+    type: 'Kereskedelmi',
     year: '2023',
-    description:
-      'Teljes homlokzat- és belső felújítás, modern munkakörnyezet és funkcionalitás a modern üzleti igényekhez.',
-    color: 'from-emerald-400 to-emerald-600',
+    description: 'Homlokzati felújítás és belső átalakítás a modern üzleti működéshez.',
+    gradient: 'from-[#5ae0ba] via-[#17a085] to-[#0a5b4e]',
   },
   {
     title: 'Logisztikai centrum',
-    category: 'Ipari',
+    type: 'Ipari',
     year: '2022',
-    description:
-      'Raktári és szállítási infrastruktúra, precíz tervezéssel és hatékony, biztonságos kivitelezéssel.',
-    color: 'from-orange-400 to-orange-600',
-  },
-  {
-    title: 'Oktatási intézmény',
-    category: 'Intézmény',
-    year: '2021',
-    description:
-      'Óvoda és általános iskola projekt, amely a modern, környezetbarát megoldásokat ötvözi a funkcionalitással.',
-    color: 'from-purple-400 to-purple-600',
+    description: 'Hatékony raktári és szállítási infrastruktúra, teljesítményre optimalizálva.',
+    gradient: 'from-[#d9c38c] via-[#b38d4a] to-[#5d4120]',
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative overflow-hidden bg-white py-20 md:py-32">
+    <section id="projects" className="section-shell bg-[#090d14]">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, margin: '-100px' }}
-          className="mb-16"
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: '-80px' }}
+          className="mb-12"
         >
-          <h2 className="text-5xl font-black leading-[1.08] tracking-[-0.07em] text-[#081b34] md:text-7xl">
-            Képesítésünk.
+          <div className="eyebrow">Referenciák</div>
+          <h2 className="mt-6 text-4xl font-black leading-[1.04] tracking-[-0.07em] text-white md:text-6xl">
+            Képesítésünk, száraz tényekkel.
           </h2>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">
-            Több mint 300 sikeres projekt bizonyítja, hogy a precizitás és a minőség mellett a
-            partnerség is az ötletünk középpontjában áll.
-          </p>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-3">
           {projects.map((project, index) => (
             <motion.article
               key={project.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
-              viewport={{ once: true, margin: '-100px' }}
-              className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_80px_rgba(15,23,42,0.08)]"
+              transition={{ delay: index * 0.08, duration: 0.7 }}
+              viewport={{ once: true, margin: '-80px' }}
+              className="group overflow-hidden rounded-[1.8rem] border border-white/10 bg-white/5"
             >
-              <div className={`flex h-64 items-end bg-gradient-to-br ${project.color} p-8`}>
-                <div className="relative z-10">
-                  <div className="mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-white/80">
-                    {project.category}
+              <div className={`flex h-64 items-end bg-gradient-to-br ${project.gradient} p-7`}>
+                <div className="w-full">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">
+                    {project.type}
                   </div>
-                  <h3 className="text-3xl font-black text-white">{project.title}</h3>
+                  <h3 className="mt-3 text-3xl font-black text-white">{project.title}</h3>
                 </div>
               </div>
 
-              <div className="p-6">
-                <p className="text-lg leading-relaxed text-slate-600">{project.description}</p>
+              <div className="p-7">
+                <p className="text-base leading-8 text-slate-300">{project.description}</p>
 
-                <div className="mt-5 flex items-center justify-between border-t border-slate-200 pt-4">
-                  <span className="text-xs font-bold uppercase tracking-[0.26em] text-slate-500">
+                <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">
                     {project.year}
                   </span>
-
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="flex h-8 w-8 items-center justify-center rounded-full bg-[#081b34] text-lg text-white"
-                  >
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg text-white">
                     →
-                  </motion.div>
+                  </div>
                 </div>
               </div>
             </motion.article>

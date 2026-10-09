@@ -5,58 +5,60 @@ import { motion } from 'framer-motion';
 const services = [
   {
     title: 'Lakóépítés',
-    description: 'Családi házak, lakóparkok, bővítések és modern, energiatudatos megoldások.',
-    icon: '🏠',
+    text: 'Családi házak, lakóparkok és energiahatékony lakóprojektek precíz kivitelezése.',
+    icon: '01',
   },
   {
-    title: 'Kereskedelmi projektek',
-    description: 'Irodaházak, üzlethelyiségek és vállalati beruházások precíz megvalósítása.',
-    icon: '🏢',
+    title: 'Kereskedelmi létesítmények',
+    text: 'Irodaházak, üzlethelyiségek és vállalati beruházások funkcionális kialakítása.',
+    icon: '02',
   },
   {
-    title: 'Ipari komplexumok',
-    description: 'Raktárak, gyártási létesítmények és logisztikai központok fejlesztése.',
-    icon: '🏭',
+    title: 'Felújítás & rekonstrukció',
+    text: 'Homlokzatok, belső terek és meglévő épületek modernizálása új értékkel.',
+    icon: '03',
   },
   {
-    title: 'Felújítás és rekonstrukció',
-    description: 'Homlokzati felújítás, bővítés, szerkezeti javítás és belső átépítés.',
-    icon: '🔨',
+    title: 'Ipari kivitelezés',
+    text: 'Raktári, logisztikai és gyártási projektek gyors, ellenőrzött megvalósítása.',
+    icon: '04',
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="relative overflow-hidden bg-slate-50 py-20 md:py-32">
+    <section id="services" className="section-shell bg-[#0b111b]">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, margin: '-100px' }}
-          className="mb-16"
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: '-80px' }}
+          className="mb-12"
         >
-          <h2 className="text-5xl font-black leading-[1.08] tracking-[-0.07em] text-[#081b34] md:text-7xl">
-            Amit kínálunk.
+          <div className="eyebrow">Szolgáltatások</div>
+          <h2 className="mt-6 text-4xl font-black leading-[1.04] tracking-[-0.07em] text-white md:text-6xl">
+            Minden, ami az építéshez kell.
           </h2>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
-              viewport={{ once: true, margin: '-100px' }}
-              className="group relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_30px_80px_rgba(15,23,42,0.08)]"
+              transition={{ delay: index * 0.08, duration: 0.7 }}
+              viewport={{ once: true, margin: '-80px' }}
+              className="group rounded-[1.75rem] border border-white/10 bg-white/5 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-50/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="relative z-10">
-                <div className="mb-5 text-5xl">{service.icon}</div>
-                <h3 className="mb-3 text-2xl font-black text-[#081b34]">{service.title}</h3>
-                <p className="text-lg leading-relaxed text-slate-600">{service.description}</p>
+              <div className="mb-5 flex items-center justify-between">
+                <div className="text-xs font-bold uppercase tracking-[0.3em] text-slate-300">{service.icon}</div>
+                <div className="h-10 w-10 rounded-full border border-white/10 bg-white/5" />
               </div>
+
+              <h3 className="text-2xl font-black text-white">{service.title}</h3>
+              <p className="mt-4 text-base leading-8 text-slate-300">{service.text}</p>
             </motion.div>
           ))}
         </div>

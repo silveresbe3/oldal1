@@ -16,30 +16,28 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 12);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <motion.header
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.1, duration: 0.6 }}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 shadow-lg shadow-slate-200/50 backdrop-blur-xl' : 'bg-transparent'
+        isScrolled ? 'border-b border-white/10 bg-[#0c121d]/80 backdrop-blur-xl' : 'bg-transparent'
       }`}
     >
       <nav className="container-custom flex h-20 items-center justify-between">
         <Link href="#top" className="group flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#081b34] text-sm font-black text-white transition-transform duration-300 group-hover:scale-110">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm font-black text-white shadow-[0_10px_30px_rgba(255,255,255,0.06)]">
             TT
           </div>
           <div className="leading-tight">
-            <div className="text-[10px] font-bold uppercase tracking-[0.32em] text-slate-500">Titán-Tech</div>
-            <div className="text-sm font-black tracking-[-0.04em] text-[#081b34]">Bau Kft.</div>
+            <div className="text-[10px] font-bold uppercase tracking-[0.32em] text-slate-300">Titán-Tech</div>
+            <div className="text-sm font-black tracking-[-0.04em] text-white">Bau Kft.</div>
           </div>
         </Link>
 
@@ -48,7 +46,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-slate-700 transition-colors duration-300 hover:text-[#081b34]"
+              className="text-sm font-medium text-slate-200 transition-colors duration-300 hover:text-white"
             >
               {item.label}
             </Link>
@@ -56,7 +54,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-4">
-          <Link href="#contact" className="hidden sm:inline-flex btn-primary">
+          <Link href="#contact" className="hidden btn-primary sm:inline-flex">
             Ajánlatkérés
           </Link>
 
@@ -64,10 +62,10 @@ export default function Header() {
             type="button"
             aria-label="Open menu"
             aria-expanded={isOpen}
-            className="rounded-lg p-2 text-slate-700 transition-colors duration-300 hover:bg-slate-100 lg:hidden"
+            className="rounded-lg p-2 text-slate-200 transition-colors duration-300 hover:bg-white/5 lg:hidden"
             onClick={() => setIsOpen((prev) => !prev)}
           >
-            <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
             </svg>
           </button>
@@ -78,14 +76,14 @@ export default function Header() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="border-t border-slate-200 bg-white/95 backdrop-blur-xl lg:hidden"
+          className="border-t border-white/10 bg-[#0d1320]/95 backdrop-blur-xl lg:hidden"
         >
           <div className="container-custom flex flex-col gap-4 py-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-slate-700 transition-colors duration-300 hover:text-[#081b34]"
+                className="text-sm font-medium text-slate-200 transition hover:text-white"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

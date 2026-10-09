@@ -7,7 +7,7 @@ export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1800);
+    const timer = setTimeout(() => setIsLoading(false), 1700);
     return () => clearTimeout(timer);
   }, []);
 
@@ -17,8 +17,8 @@ export default function LoadingScreen() {
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
-      transition={{ duration: 0.7, delay: 0.8 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-br from-[#f8fafc] via-white to-blue-50"
+      transition={{ duration: 0.8, delay: 0.8 }}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#090d14]"
     >
       <div className="text-center">
         <motion.div
@@ -27,7 +27,7 @@ export default function LoadingScreen() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#081b34] to-blue-600 text-xl font-black text-white shadow-[0_20px_50px_rgba(8,27,52,0.32)]">
+          <div className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xl font-black text-white shadow-[0_20px_50px_rgba(255,255,255,0.08)]">
             TT
           </div>
         </motion.div>
@@ -36,7 +36,7 @@ export default function LoadingScreen() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
-          className="text-4xl font-black tracking-[-0.06em] text-[#081b34] md:text-5xl"
+          className="text-4xl font-black tracking-[-0.06em] text-white md:text-5xl"
         >
           Titán-Tech
         </motion.h1>
@@ -45,7 +45,7 @@ export default function LoadingScreen() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="mt-3 text-xs font-bold uppercase tracking-[0.32em] text-blue-700"
+          className="mt-3 text-[10px] font-bold uppercase tracking-[0.32em] text-slate-300"
         >
           Bau Kft.
         </motion.p>
@@ -61,7 +61,7 @@ export default function LoadingScreen() {
               key={index}
               animate={{ scaleY: [0.5, 1, 0.5] }}
               transition={{ duration: 1, repeat: Infinity, delay: index * 0.18 }}
-              className="h-8 w-2 rounded-full bg-blue-600"
+              className="h-8 w-2 rounded-full bg-blue-300"
             />
           ))}
         </motion.div>

@@ -2,70 +2,65 @@
 
 import { motion } from 'framer-motion';
 
-const values = [
+const stats = [
   {
     title: 'Precizitás',
-    description:
-      'Minden millimétert gondosan tervezünk és kivitelezünk, hogy a végső eredmény építészeti és funkcionális szempontból is tökéletes legyen.',
+    text: 'A mérnöki szemlélet és a részletekhez való ragaszkodás teszi különlegessé a projektjeinket.',
   },
   {
     title: 'Minőség',
-    description:
-      'Csak a legjobb anyagok és kivitelezési gyakorlatok alapján dolgozunk, hogy a projekt hosszú távon is értéket adjon.',
+    text: 'Szigorú ellenőrzés, ellenőrizhető minőség és hosszú távú gondosság minden munkafolyamatban.',
   },
   {
     title: 'Innováció',
-    description:
-      'A legmodernebb technológiákat és rendszereket alkalmazzuk, hogy gyorsabb, hatékonyabb és fenntarthatóbb megoldásokat nyújtsunk.',
+    text: 'A modern technológiák és digitális eszközök alkalmazása fokozza a hatékonyságot és a pontosságot.',
   },
   {
     title: 'Felelősség',
-    description:
-      'Minden projektünkhöz személyre szabott figyelmet és bizalmat kötünk, hogy a találkozó partnerkapcsolatok is hosszú távúak maradjanak.',
+    text: 'Ügyfélközpontú kommunikáció, naprakész információ és stabil partnerkapcsolat a teljes projekt során.',
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-white py-20 md:py-32">
+    <section id="about" className="section-shell bg-[#0d1320]">
       <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, margin: '-100px' }}
-          className="mb-16"
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: '-80px' }}
+          className="mb-16 max-w-3xl"
         >
-          <h2 className="mb-6 text-5xl font-black leading-[1.08] tracking-[-0.07em] text-[#081b34] md:text-7xl">
-            Értékek, amelyekben
-            <br className="hidden md:block" />
-            <span className="text-gradient">megbízhat.</span>
+          <div className="eyebrow">Rólunk</div>
+          <h2 className="mt-6 text-4xl font-black leading-[1.04] tracking-[-0.07em] text-white md:text-6xl">
+            A minőség és a bizalom
+            <br />
+            az építés alapja.
           </h2>
-          <p className="max-w-2xl text-lg leading-relaxed text-slate-600">
-            Több mint 20 év tapasztalattal és szigorú minőségi szemlélettel építünk olyan projekteket,
-            amelyek a mai igényeket és a holnap kihívásait is kiszolgálják.
+          <p className="mt-6 text-lg leading-8 text-slate-300">
+            Több mint 20 év tapasztalattal, modern megközelítéssel és megbízható munkamorállal
+            építünk olyan projekteket, amelyek ma is értéket teremtenek és holnap is megállják a helyüket.
           </p>
         </motion.div>
 
-        <div className="grid gap-12 md:grid-cols-2">
-          {values.map((value, index) => (
+        <div className="grid gap-6 md:grid-cols-2">
+          {stats.map((item, index) => (
             <motion.div
-              key={value.title}
-              initial={{ opacity: 0, y: 40 }}
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
-              viewport={{ once: true, margin: '-100px' }}
-              className="group"
+              transition={{ delay: index * 0.08, duration: 0.7 }}
+              viewport={{ once: true, margin: '-80px' }}
+              className="rounded-[1.75rem] border border-white/10 bg-white/5 p-7"
             >
-              <div className="relative mb-6">
-                <div className="absolute -left-8 top-0 text-7xl font-black text-slate-200/50 transition-colors duration-300 group-hover:text-slate-200/75">
-                  {(index + 1).toString().padStart(2, '0')}
+              <div className="mb-6 flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg font-black text-white">
+                  0{index + 1}
                 </div>
-                <h3 className="text-3xl font-black text-[#081b34]">{value.title}</h3>
+                <h3 className="text-2xl font-black text-white">{item.title}</h3>
               </div>
-              <p className="text-lg leading-relaxed text-slate-600 transition-colors duration-300 group-hover:text-slate-700">
-                {value.description}
-              </p>
+              <p className="text-base leading-8 text-slate-300">{item.text}</p>
             </motion.div>
           ))}
         </div>
