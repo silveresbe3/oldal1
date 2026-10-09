@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'BuildCraft | Professzionális Építőipari Cég',
-  description: 'BuildCraft - 15+ év tapasztalat az építőiparban. Lakóép, kereskedelmi és ipari projektek megvalósítása. Ajánlatkérés: +36 1 234 5678',
-  keywords: ['építőipari cég', 'felújítás', 'építkezés', 'projektmenedzselés', 'Budapest'],
+  title: 'Titán-Tech Bau Kft. | Professzionális Építőipari Cég',
+  description: 'Titán-Tech Bau Kft. - 20+ év tapasztalat az építőiparban. Lakó-, kereskedelmi és ipari projektek. Ajánlatkérés: +36 1 234 5678',
+  keywords: ['építőipari cég', 'felújítás', 'építkezés', 'projektmenedzselés', 'Budapest', 'Titán-Tech'],
 };
 
 export default function RootLayout({

@@ -1,23 +1,23 @@
-# BuildCraft - Professzionális Építőipari Cég
+# Titán-Tech Bau Kft.
 
-BuildCraft egy megbízható építőipari vállalkozás, amely több mint 15 év tapasztalattal rendelkezik a lakóépületek,
-kereskedelmi projektek és ipari megoldások terén. A mi küldetésünk: magas minőségű építési megoldások nyújtása,
-pontos ütemtervek betartása, és a legtöbb ügyfél-elégedettség elérése.
+Professzionális építőipari cég, amely 20+ év tapasztalattal rendelkezik a lakó-, kereskedelmi és ipari projektek terén.
 
 ## Jellemzők
 
-- **15+ év tapasztalat** az építőiparban
-- **250+ befejezett projekt** portfólió
-- **98% ügyfél-elégedettség** aránya
-- **Professzionális csapat** szakértő mérnökökkel és projektvezetőkkel
+- **20+ év tapasztalat** az építőiparban
+- **300+ befejezett projekt** portfólió
+- **99% ügyfél-elégedettség** aránya
+- **Professzionális csapat** szak értő mérnökökkel és projektvezetőkkel
 - Lakó-, kereskedelmi és ipari projektek
 - Speciális megoldások és felújítások
 - Teljes projektmenedzselés és felügyelet
+- Loading screen animáció
+- Responzív, modern dizájn
 
 ## Szolgáltatások
 
 - 🏘️ Lakóépületek (családi házak, lakóparkok)
-- 🏗️ Kereskedelmi projektek (irodaházak, bevásárlóközpontok)
+- 🏢 Kereskedelmi projektek (irodaházak, bevásárlóközpontok)
 - 🔧 Felújítás és helyreállítás
 - ⚙️ Mérnöki munkák
 - 🏛️ Közintézmények
@@ -48,6 +48,6 @@ npm run start
 
 ## Kapcsolat
 
-- 📞 Telefon: +36 1 234 5678
-- ✉️ Email: info@buildcraft.hu
-- 📍 Cím: Budapest, Stefánia út 42-44.
+- ☎️ Telefon: +36 1 234 5678
+- ✉️ Email: info@titantech.hu
+- 📍 Cím: Budapest, Bérc utca 8-10.
