@@ -1,25 +1,59 @@
-import Link from 'next/link';
+'use client';
 
-export default function Footer() {
-  const year = new Date().getFullYear();
+import { useEffect, useState } from 'react';
+
+export default function LoadingScreen() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2400);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isLoading) return null;
 
   return (
-    <footer className="bg-[#020d1d] px-4 py-10 text-slate-300 md:px-0">
-      <div className="container-custom flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <div>
-          <div className="text-lg font-black tracking-[-0.06em] text-white">Titán-Tech</div>
-          <div className="text-[10px] font-bold uppercase tracking-[0.32em] text-blue-300">Bau Kft.</div>
+    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-[#f7f9fc]">
+      <div className="text-center">
+        <div className="animate-fadeIn text-5xl font-black tracking-[-0.08em] text-[#081b34] md:text-6xl">
+          TITÁN-TECH
+        </div>
+        <div className="animate-fadeIn delay-100 mt-2 text-xl font-bold uppercase tracking-[0.35em] text-blue-700 md:text-2xl">
+          BAU KFT.
         </div>
 
-        <div className="flex flex-wrap gap-5 text-sm text-slate-400">
-          <Link href="#about" className="transition hover:text-white">Rólunk</Link>
-          <Link href="#services" className="transition hover:text-white">Szolgáltatások</Link>
-          <Link href="#projects" className="transition hover:text-white">Referenciák</Link>
-          <Link href="#contact" className="transition hover:text-white">Kapcsolat</Link>
+        <div className="mt-8 flex justify-center">
+          <div className="animate-bounce-soft h-20 w-20 md:h-24 md:w-24">
+            <svg viewBox="0 0 220 220" className="h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M35 150V95L110 45L185 95V150" stroke="#081b34" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M70 150V118H150V150" stroke="#081b34" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M95 102H125V118H95V102Z" fill="#1d4ed8"/>
+              <path d="M50 150H170" stroke="#081b34" strokeWidth="10" strokeLinecap="round"/>
+              <path d="M70 94L110 64L150 94" stroke="#1d4ed8" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
         </div>
-
-        <div className="text-sm text-slate-500">© {year} Titán-Tech Bau Kft.</div>
       </div>
-    </footer>
+
+      <style>{`
+        @keyframes fadeIn {
+          0% { opacity: 0; transform: translateY(10px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.8s ease-out both;
+        }
+        .delay-100 {
+          animation-delay: 0.15s;
+        }
+        @keyframes bounceSoft {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-8px); }
+        }
+        .animate-bounce-soft {
+          animation: bounceSoft 1.2s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
   );
 }
