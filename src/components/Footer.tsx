@@ -1,25 +1,60 @@
+'use client';
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+const links = [
+  { label: 'Rólunk', href: '#about' },
+  { label: 'Szolgáltatások', href: '#services' },
+  { label: 'Projektek', href: '#projects' },
+  { label: 'Kapcsolat', href: '#contact' },
+];
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#020d1d] px-4 py-10 text-slate-300 md:px-0">
-      <div className="container-custom flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <div>
-          <div className="text-lg font-black tracking-[-0.06em] text-white">Titán-Tech</div>
-          <div className="text-[10px] font-bold uppercase tracking-[0.32em] text-blue-300">Bau Kft.</div>
+    <motion.footer
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true, margin: '-100px' }}
+      className="border-t border-slate-200 bg-white py-12 md:py-16"
+    >
+      <div className="container-custom">
+        <div className="mb-12 grid gap-8 md:grid-cols-4">
+          <div>
+            <h3 className="mb-3 text-xl font-black text-[#081b34]">Titán-Tech</h3>
+            <p className="text-sm text-slate-600">Bau Kft.</p>
+          </div>
+
+          {links.map((link) => (
+            <div key={link.href}>
+              <h4 className="mb-4 text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">
+                Linkek
+              </h4>
+              <Link href={link.href} className="block text-sm text-slate-600 transition-colors duration-300 hover:text-[#081b34]">
+                {link.label}
+              </Link>
+            </div>
+          ))}
         </div>
 
-        <div className="flex flex-wrap gap-5 text-sm text-slate-400">
-          <Link href="#about" className="transition hover:text-white">Rólunk</Link>
-          <Link href="#services" className="transition hover:text-white">Szolgáltatások</Link>
-          <Link href="#projects" className="transition hover:text-white">Referenciák</Link>
-          <Link href="#contact" className="transition hover:text-white">Kapcsolat</Link>
-        </div>
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 sm:flex-row">
+          <div className="text-xs font-medium uppercase tracking-[0.28em] text-slate-500">
+            © {year} Titán-Tech Bau Kft.
+          </div>
 
-        <div className="text-sm text-slate-500">© {year} Titán-Tech Bau Kft.</div>
+          <div className="flex gap-6">
+            <Link href="#" className="text-sm text-slate-600 transition-colors duration-300 hover:text-[#081b34]">
+              Adatvédelmi politika
+            </Link>
+            <Link href="#" className="text-sm text-slate-600 transition-colors duration-300 hover:text-[#081b34]">
+              Felhasználási feltételek
+            </Link>
+          </div>
+        </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

@@ -1,49 +1,72 @@
-const points = [
+'use client';
+
+import { motion } from 'framer-motion';
+
+const values = [
   {
-    title: 'Precíz tervezés',
-    text: 'Minden projektben a kezdetektől a kivitelezésig strukturált, átlátható és konkrét tervezési folyamatot követünk.',
+    title: 'Precizitás',
+    description:
+      'Minden millimétert gondosan tervezünk és kivitelezünk, hogy a végső eredmény építészeti és funkcionális szempontból is tökéletes legyen.',
   },
   {
-    title: 'Tartós minőség',
-    text: 'Szigorú ellenőrzések, magas szabványok és gondos kivitelezés garantálják a hosszú távú értéket.',
+    title: 'Minőség',
+    description:
+      'Csak a legjobb anyagok és kivitelezési gyakorlatok alapján dolgozunk, hogy a projekt hosszú távon is értéket adjon.',
   },
   {
-    title: 'Rugalmas partnerség',
-    text: 'Nyílt kommunikációval, gyors reagálással és ügyfélközpontú megoldásokkal dolgozunk.',
+    title: 'Innováció',
+    description:
+      'A legmodernebb technológiákat és rendszereket alkalmazzuk, hogy gyorsabb, hatékonyabb és fenntarthatóbb megoldásokat nyújtsunk.',
   },
   {
-    title: 'Teljes körű támogatás',
-    text: 'A tervezéstől a záró átvételig, a projekt minden fázisában stabil és megbízható támogatást nyújtunk.',
+    title: 'Felelősség',
+    description:
+      'Minden projektünkhöz személyre szabott figyelmet és bizalmat kötünk, hogy a találkozó partnerkapcsolatok is hosszú távúak maradjanak.',
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-28">
+    <section id="about" className="relative overflow-hidden bg-white py-20 md:py-32">
       <div className="container-custom">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="section-badge">Rólunk</div>
-          <h2 className="mt-5 text-balance text-4xl font-black tracking-[-0.06em] text-[#081b34] md:text-5xl">
-            A minőség és a bizalom az építés alapja.
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: '-100px' }}
+          className="mb-16"
+        >
+          <h2 className="mb-6 text-5xl font-black leading-[1.08] tracking-[-0.07em] text-[#081b34] md:text-7xl">
+            Értékek, amelyekben
+            <br className="hidden md:block" />
+            <span className="text-gradient">megbízhat.</span>
           </h2>
-          <p className="mt-4 text-base leading-8 text-slate-600 md:text-lg">
-            Többéves tapasztalattal, modern megközelítéssel és ügyfélközpontú hozzáállással építünk olyan projektekben,
-            amelyek a ma igényeit és a holnap kihívásait is kiszolgálják.
+          <p className="max-w-2xl text-lg leading-relaxed text-slate-600">
+            Több mint 20 év tapasztalattal és szigorú minőségi szemlélettel építünk olyan projekteket,
+            amelyek a mai igényeket és a holnap kihívásait is kiszolgálják.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {points.map((point, index) => (
-            <div key={point.title} className="card relative overflow-hidden bg-slate-50">
-              <div className="absolute -right-5 top-5 text-[100px] font-black leading-none text-blue-100">0{index + 1}</div>
-              <div className="relative z-10">
-                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-900">
-                  0{index + 1}
+        <div className="grid gap-12 md:grid-cols-2">
+          {values.map((value, index) => (
+            <motion.div
+              key={value.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.8 }}
+              viewport={{ once: true, margin: '-100px' }}
+              className="group"
+            >
+              <div className="relative mb-6">
+                <div className="absolute -left-8 top-0 text-7xl font-black text-slate-200/50 transition-colors duration-300 group-hover:text-slate-200/75">
+                  {(index + 1).toString().padStart(2, '0')}
                 </div>
-                <h3 className="text-xl font-bold text-[#081b34]">{point.title}</h3>
-                <p className="mt-3 text-base leading-7 text-slate-600">{point.text}</p>
+                <h3 className="text-3xl font-black text-[#081b34]">{value.title}</h3>
               </div>
-            </div>
+              <p className="text-lg leading-relaxed text-slate-600 transition-colors duration-300 group-hover:text-slate-700">
+                {value.description}
+              </p>
+            </motion.div>
           ))}
         </div>
       </div>

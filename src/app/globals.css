@@ -3,15 +3,19 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
-  --background: #f8fbff;
-  --panel: rgba(255, 255, 255, 0.7);
-  --border: rgba(148, 163, 184, 0.25);
-  --text: #071b33;
-  --muted: #475569;
   --primary: #081b34;
   --primary-soft: #dbeafe;
-  --accent: #2563eb;
+  --bg: #f5f7fb;
+  --text: #0f172a;
+  --muted: #64748b;
+  --line: rgba(15, 23, 42, 0.08);
+  --card: rgba(255, 255, 255, 0.8);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -22,32 +26,27 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(191, 219, 254, 0.65), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(191, 219, 254, 0.35), transparent 18%),
-    linear-gradient(180deg, #ffffff 0%, #f8fbff 28%, #eef4ff 100%);
+    radial-gradient(circle at top left, rgba(147, 197, 253, 0.2), transparent 18%),
+    radial-gradient(circle at bottom right, rgba(148, 163, 184, 0.15), transparent 22%),
+    #f5f7fb;
   color: var(--text);
-  font-family: Inter, 'Segoe UI', sans-serif;
+  font-family: Inter, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
   overflow-x: hidden;
 }
 
-img,
-svg {
+img, svg {
   display: block;
   max-width: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 ::selection {
-  background: rgba(96, 165, 250, 0.3);
+  background: rgba(96, 165, 250, 0.28);
   color: var(--text);
 }
 
@@ -56,41 +55,26 @@ svg {
     @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
+  .section-hero {
+    @apply relative min-h-screen w-full overflow-hidden;
+  }
+
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-[#081b34] px-6 py-3 text-sm font-bold text-white shadow-[0_18px_40px_rgba(8,27,52,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0d2343] focus:outline-none focus:ring-2 focus:ring-blue-400;
+    @apply inline-flex items-center justify-center rounded-full bg-[#081b34] px-8 py-4 text-base font-semibold text-white shadow-[0_20px_40px_rgba(8,27,52,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0d2343] focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-900 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50;
+    @apply inline-flex items-center justify-center rounded-full border border-[#081b34]/20 bg-white/70 px-8 py-4 text-base font-semibold text-[#081b34] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#081b34]/40 hover:bg-white focus:outline-none;
   }
 
-  .card {
-    @apply rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.04)];
-  }
-
-  .glass-card {
-    @apply rounded-[2rem] border border-white/60 bg-white/75 p-4 shadow-[0_30px_90px_rgba(15,23,42,0.08)] backdrop-blur-sm;
-  }
-
-  .section-badge {
-    @apply inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.28em] text-blue-800;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#081b34] via-[#0f172a] to-blue-600 bg-clip-text text-transparent;
   }
 }
 
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
 }
 
 .animate-float {
@@ -98,13 +82,8 @@ svg {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation: none !important;
     transition: none !important;
   }

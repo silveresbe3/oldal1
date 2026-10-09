@@ -1,84 +1,98 @@
 'use client';
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-const stats = [
-  { value: '300+', label: 'projektek' },
-  { value: '20+', label: 'év tapasztalat' },
-  { value: '99%', label: 'elégedettség' },
-];
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.18,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: 'easeOut' },
+  },
+};
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-8 pb-16 md:pt-12 md:pb-20">
-      <div className="absolute inset-x-0 top-0 h-96 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.16),_transparent_40%)]" />
-      <div className="container-custom relative grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="relative z-10">
-          <div className="section-badge">Titán-Tech Bau Kft.</div>
+    <section id="top" className="section-hero pt-20">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-blue-100/50 blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 h-72 w-72 rounded-full bg-slate-200/60 blur-3xl" />
+      </div>
 
-          <h1 className="mt-6 max-w-xl text-balance text-5xl font-black leading-[0.92] tracking-[-0.08em] text-[#081b34] md:text-7xl">
-            Modern építkezés.<br />
-            Példaértékű partner.
-          </h1>
+      <div className="container-custom flex min-h-screen items-center justify-center pt-20">
+        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="text-center">
+          <motion.div variants={itemVariants} className="mb-6">
+            <span className="inline-block rounded-full border border-blue-200 bg-blue-50/80 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.28em] text-blue-800">
+              Titán-Tech Bau Kft.
+            </span>
+          </motion.div>
 
-          <p className="mt-6 max-w-xl text-base leading-8 text-slate-600 md:text-lg">
-            A Titán-Tech Bau Kft. komplex építőipari megoldásokat kínál lakó-, kereskedelmi és ipari beruházásokhoz,
-            precíz kivitelezéssel, átlátható kommunikációval és tartós minőséggel.
-          </p>
+          <motion.h1
+            variants={itemVariants}
+            className="mx-auto max-w-4xl text-5xl font-black leading-[0.9] tracking-[-0.08em] text-[#081b34] md:text-8xl"
+          >
+            Precíz építkezés.
+            <br />
+            <span className="text-gradient">Hosszú távú partnerség.</span>
+          </motion.h1>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <motion.p
+            variants={itemVariants}
+            className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl"
+          >
+            A legmodernebb technológiával és a legjobb gyakorlatokkal építünk olyan projekteket,
+            amelyek generációkig megállják a helyüket.
+          </motion.p>
+
+          <motion.div variants={itemVariants} className="mt-12 flex flex-col justify-center gap-4 sm:flex-row">
             <Link href="#contact" className="btn-primary">
-              Ingyenes ajánlat
+              Kezdjük el
             </Link>
             <Link href="#projects" className="btn-secondary">
-              Referenciák
+              Projektek
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            {stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
-                <div className="text-2xl font-black text-[#081b34]">{stat.value}</div>
-                <div className="mt-1 text-sm text-slate-600">{stat.label}</div>
+          <motion.div variants={itemVariants} className="mt-16 grid grid-cols-3 gap-8 md:gap-16">
+            {[
+              { value: '300+', label: 'Projekt' },
+              { value: '20+', label: 'Év' },
+              { value: '99%', label: 'Elégedettség' },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-3xl font-black text-[#081b34] md:text-5xl">{stat.value}</div>
+                <div className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-slate-600 md:text-sm">
+                  {stat.label}
+                </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        <div className="relative">
-          <div className="absolute left-10 top-8 h-44 w-44 rounded-full bg-blue-200/40 blur-3xl" />
-          <div className="absolute right-6 bottom-4 h-40 w-40 rounded-full bg-slate-200/70 blur-3xl" />
-
-          <div className="glass-card relative animate-float">
-            <div className="overflow-hidden rounded-[1.6rem] bg-gradient-to-br from-slate-100 to-blue-50 p-5">
-              <svg viewBox="0 0 640 520" className="h-auto w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="120" y="125" width="220" height="265" rx="6" fill="#081b34" />
-                <rect x="150" y="155" width="38" height="200" fill="#f8fafc" opacity="0.9" />
-                <rect x="205" y="155" width="38" height="200" fill="#60a5fa" opacity="0.85" />
-                <rect x="260" y="155" width="38" height="200" fill="#dbeafe" opacity="0.9" />
-                <path d="M80 215H120V390H80V215Z" fill="#dbeafe" />
-                <path d="M340 215H380V390H340V215Z" fill="#dbeafe" />
-                <path d="M90 182L180 120H260L350 182" stroke="#081b34" strokeWidth="16" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M230 104L300 48L420 158" stroke="#1d4ed8" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
-                <rect x="390" y="225" width="155" height="165" rx="5" fill="#081b34" />
-                <rect x="415" y="247" width="105" height="120" fill="#dbeafe" />
-                <path d="M150 390H480" stroke="#081b34" strokeWidth="16" strokeLinecap="round" />
-                <path d="M200 390V465H430V390" stroke="#081b34" strokeWidth="16" strokeLinecap="round" />
-              </svg>
-            </div>
-
-            <div className="absolute -bottom-4 left-6 rounded-2xl border border-blue-100 bg-white px-4 py-3 shadow-lg shadow-blue-100/80">
-              <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-blue-700">2024</div>
-              <div className="mt-1 text-base font-extrabold text-[#081b34]">Lakópark kivitelezés</div>
-            </div>
-
-            <div className="absolute -right-3 top-8 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-lg">
-              <div className="text-[10px] font-bold uppercase tracking-[0.28em] text-slate-500">Minőség</div>
-              <div className="mt-1 text-xl font-black text-[#081b34]">99%</div>
-            </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.8, repeat: Infinity, repeatType: 'reverse' }}
+        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
+      >
+        <span className="text-[10px] font-medium uppercase tracking-[0.32em] text-slate-500">Görgetni</span>
+        <svg className="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </motion.div>
     </section>
   );
 }
