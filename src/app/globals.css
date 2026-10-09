@@ -1,59 +1,111 @@
-'use client';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-import { useEffect, useState } from 'react';
+:root {
+  color-scheme: light;
+  --background: #f8fbff;
+  --panel: rgba(255, 255, 255, 0.7);
+  --border: rgba(148, 163, 184, 0.25);
+  --text: #071b33;
+  --muted: #475569;
+  --primary: #081b34;
+  --primary-soft: #dbeafe;
+  --accent: #2563eb;
+}
 
-export default function LoadingScreen() {
-  const [isLoading, setIsLoading] = useState(true);
+html {
+  scroll-behavior: smooth;
+}
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2400);
-    return () => clearTimeout(timer);
-  }, []);
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(191, 219, 254, 0.65), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(191, 219, 254, 0.35), transparent 18%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 28%, #eef4ff 100%);
+  color: var(--text);
+  font-family: Inter, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  if (!isLoading) return null;
+* {
+  box-sizing: border-box;
+}
 
-  return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center bg-[#f7f9fc]">
-      <div className="text-center">
-        <div className="animate-fadeIn text-5xl font-black tracking-[-0.08em] text-[#081b34] md:text-6xl">
-          TITÁN-TECH
-        </div>
-        <div className="animate-fadeIn delay-100 mt-2 text-xl font-bold uppercase tracking-[0.35em] text-blue-700 md:text-2xl">
-          BAU KFT.
-        </div>
+html,
+body {
+  overflow-x: hidden;
+}
 
-        <div className="mt-8 flex justify-center">
-          <div className="animate-bounce-soft h-20 w-20 md:h-24 md:w-24">
-            <svg viewBox="0 0 220 220" className="h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M35 150V95L110 45L185 95V150" stroke="#081b34" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M70 150V118H150V150" stroke="#081b34" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M95 102H125V118H95V102Z" fill="#1d4ed8"/>
-              <path d="M50 150H170" stroke="#081b34" strokeWidth="10" strokeLinecap="round"/>
-              <path d="M70 94L110 64L150 94" stroke="#1d4ed8" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        </div>
-      </div>
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
 
-      <style>{`
-        @keyframes fadeIn {
-          0% { opacity: 0; transform: translateY(10px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease-out both;
-        }
-        .delay-100 {
-          animation-delay: 0.15s;
-        }
-        @keyframes bounceSoft {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
-        }
-        .animate-bounce-soft {
-          animation: bounceSoft 1.2s ease-in-out infinite;
-        }
-      `}</style>
-    </div>
-  );
+::selection {
+  background: rgba(96, 165, 250, 0.3);
+  color: var(--text);
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-[#081b34] px-6 py-3 text-sm font-bold text-white shadow-[0_18px_40px_rgba(8,27,52,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0d2343] focus:outline-none focus:ring-2 focus:ring-blue-400;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-900 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50;
+  }
+
+  .card {
+    @apply rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.04)];
+  }
+
+  .glass-card {
+    @apply rounded-[2rem] border border-white/60 bg-white/75 p-4 shadow-[0_30px_90px_rgba(15,23,42,0.08)] backdrop-blur-sm;
+  }
+
+  .section-badge {
+    @apply inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.28em] text-blue-800;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

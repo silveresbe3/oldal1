@@ -1,46 +1,25 @@
-export default function Contact() {
-  return (
-    <section id="contact" className="bg-[#071b33] py-20 md:py-28">
-      <div className="container-custom grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-blue-300">Kapcsolat</p>
-          <h2 className="mt-4 text-4xl font-black tracking-[-0.06em] text-white md:text-5xl">
-            Kérjen ingyenes ajánlatot.
-          </h2>
-          <p className="mt-4 max-w-xl text-base leading-7 text-blue-100">
-            Bármilyen kérdése van, szívesen egyeztetünk Önnel a projektigényéről és ajánlatot adunk a legjobb megoldásra.
-          </p>
+import Link from 'next/link';
 
-          <div className="mt-10 space-y-5 text-blue-100">
-            <div>
-              <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-300">Telefon</div>
-              <a href="tel:+36123456789" className="mt-2 inline-block text-lg font-bold text-white">+36 1 234 5678</a>
-            </div>
-            <div>
-              <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-300">Email</div>
-              <a href="mailto:info@titantech.hu" className="mt-2 inline-block text-lg font-bold text-white">info@titantech.hu</a>
-            </div>
-            <div>
-              <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-300">Cím</div>
-              <div className="mt-2 text-lg font-bold text-white">Budapest, Bérc utca 8-10.</div>
-            </div>
-          </div>
+export default function Footer() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="bg-[#020d1d] px-4 py-10 text-slate-300 md:px-0">
+      <div className="container-custom flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <div className="text-lg font-black tracking-[-0.06em] text-white">Titán-Tech</div>
+          <div className="text-[10px] font-bold uppercase tracking-[0.32em] text-blue-300">Bau Kft.</div>
         </div>
 
-        <form className="rounded-[2rem] bg-white/95 p-6 shadow-[0_30px_80px_rgba(15,23,42,0.2)]">
-          <div className="grid gap-4 md:grid-cols-2">
-            <input type="text" placeholder="Név" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:outline-none" />
-            <input type="email" placeholder="Email" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:outline-none" />
-          </div>
-          <div className="mt-4">
-            <input type="text" placeholder="Projekt típusa" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:outline-none" />
-          </div>
-          <div className="mt-4">
-            <textarea rows={6} placeholder="Projekt leírása" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:outline-none" />
-          </div>
-          <button type="submit" className="btn-primary mt-5 w-full">Ajánlatkérés</button>
-        </form>
+        <div className="flex flex-wrap gap-5 text-sm text-slate-400">
+          <Link href="#about" className="transition hover:text-white">Rólunk</Link>
+          <Link href="#services" className="transition hover:text-white">Szolgáltatások</Link>
+          <Link href="#projects" className="transition hover:text-white">Referenciák</Link>
+          <Link href="#contact" className="transition hover:text-white">Kapcsolat</Link>
+        </div>
+
+        <div className="text-sm text-slate-500">© {year} Titán-Tech Bau Kft.</div>
       </div>
-    </section>
+    </footer>
   );
 }
