@@ -1,0 +1,66 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
+const values = [
+  {
+    title: 'Precizitás',
+    text: 'A részletekhez való odafigyelés és a jól felépített folyamat a projekt sikerének alapja.',
+  },
+  {
+    title: 'Minőség',
+    text: 'Szigorú ellenőrzés, megbízható kivitelezés és hosszú távú gondosság minden munka során.',
+  },
+  {
+    title: 'Bizalom',
+    text: 'Nyílt kommunikáció, pontos ütemterv és stabil együttműködés, amelyre építeni lehet.',
+  },
+];
+
+export default function About() {
+  return (
+    <section id="about" className="section-shell bg-[#0d1320]">
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-80px' }}
+          className="mb-12 max-w-3xl"
+        >
+          <div className="eyebrow">Rólunk</div>
+          <h2 className="mt-6 text-4xl font-black leading-[1.04] tracking-[-0.07em] text-white md:text-6xl">
+            A minőség és a bizalom
+            <br />
+            az építés alapja.
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-slate-300">
+            Több mint 20 év tapasztalattal dolgozunk olyan projekten, amelyet a precizitás, a megbízhatóság és a tisztán gondolkodó kivitelezés határoz meg.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {values.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.08, duration: 0.6 }}
+              viewport={{ once: true, margin: '-80px' }}
+              className="rounded-[1.6rem] border border-white/10 bg-white/5 p-7"
+            >
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-lg font-black text-white">
+                0{index + 1}
+              </div>
+              <h3 className="text-2xl font-black text-white">{item.title}</h3>
+              <p className="mt-4 text-base leading-8 text-slate-300">{item.text}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
