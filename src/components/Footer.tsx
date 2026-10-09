@@ -60,20 +60,20 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true, margin: '-80px' }}
             onSubmit={handleSubmit}
-            className="rounded-[1.75rem] border border-[#d8c1a2]/10 bg-[#171d22] p-6"
+            className="rounded-[1.3rem] border border-[#d8c1a2]/10 bg-[#171d22] p-6"
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <input
                 type="text"
                 placeholder="Név"
                 required
-                className="w-full rounded-xl border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
+                className="w-full rounded-[0.75rem] border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
               />
               <input
                 type="email"
                 placeholder="Email"
                 required
-                className="w-full rounded-xl border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
+                className="w-full rounded-[0.75rem] border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
               />
             </div>
 
@@ -81,7 +81,7 @@ export default function Contact() {
               <input
                 type="text"
                 placeholder="Projekt típusa"
-                className="w-full rounded-xl border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
+                className="w-full rounded-[0.75rem] border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
               />
             </div>
 
@@ -90,7 +90,7 @@ export default function Contact() {
                 rows={5}
                 placeholder="Üzenet"
                 required
-                className="w-full resize-none rounded-xl border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
+                className="w-full resize-none rounded-[0.75rem] border border-[#d8c1a2]/10 bg-[#0f1418] px-4 py-3 text-white placeholder:text-[#c8c0b8] focus:border-[#d8c1a2]/40 focus:outline-none"
               />
             </div>
 
@@ -98,7 +98,7 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-4 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-100"
+                className="mt-4 rounded-[0.75rem] border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-100"
               >
                 Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.
               </motion.div>

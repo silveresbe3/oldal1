@@ -2,79 +2,66 @@
 
 import { motion } from 'framer-motion';
 
-const projects = [
+const stats = [
   {
-    title: 'Luxus lakópark',
-    type: 'Lakóépítés',
-    year: '2024',
-    description: 'Modern családi házak és közösségi terek környezetbarát, precíz kialakítással.',
-    gradient: 'from-[#d1b28a] via-[#b7895e] to-[#5f4837]',
+    title: 'Precizitás',
+    text: 'A mérnöki szemlélet és a részletekhez való ragaszkodás teszi különlegessé a projektjeinket.',
   },
   {
-    title: 'Irodaház rekonstrukció',
-    type: 'Kereskedelmi',
-    year: '2023',
-    description: 'Homlokzati felújítás és belső átalakítás a modern üzleti működéshez.',
-    gradient: 'from-[#c7b7a2] via-[#8c7a66] to-[#2d2b2a]',
+    title: 'Minőség',
+    text: 'Szigorú ellenőrzés, ellenőrizhető minőség és hosszú távú gondosság minden munkafolyamatban.',
   },
   {
-    title: 'Logisztikai centrum',
-    type: 'Ipari',
-    year: '2022',
-    description: 'Hatékony raktári és szállítási infrastruktúra, teljesítményre optimalizálva.',
-    gradient: 'from-[#d9d3c8] via-[#8d7d69] to-[#2a2a2d]',
+    title: 'Innováció',
+    text: 'A modern technológiák és digitális eszközök alkalmazása fokozza a hatékonyságot és a pontosságot.',
+  },
+  {
+    title: 'Felelősség',
+    text: 'Ügyfélközpontú kommunikáció, naprakész információ és stabil partnerkapcsolat a teljes projekt során.',
   },
 ];
 
-export default function Projects() {
+export default function About() {
   return (
-    <section id="projects" className="section-shell bg-[#0b0d0f]">
+    <section id="about" className="section-shell bg-[#111517]">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true, margin: '-80px' }}
-          className="mb-12"
+          className="mb-16 max-w-3xl"
         >
-          <div className="eyebrow">Referenciák</div>
+          <div className="eyebrow">Rólunk</div>
           <h2 className="mt-6 text-4xl font-black leading-[1.04] tracking-[-0.07em] text-white md:text-6xl">
-            Képesítésünk, száraz tényekkel.
+            A minőség és a bizalom
+            <br />
+            az építés alapja.
           </h2>
+          <p className="mt-6 text-lg leading-8 text-[#c7c0b9]">
+            Több mint 20 év tapasztalattal, modern megközelítéssel és megbízható munkamorállal
+            építünk olyan projekteket, amelyek ma is értéket teremtenek és holnap is megállják a helyüket.
+          </p>
         </motion.div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.title}
+        <div className="grid gap-5 md:grid-cols-2">
+          {stats.map((item, index) => (
+            <motion.div
+              key={item.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.08, duration: 0.7 }}
               viewport={{ once: true, margin: '-80px' }}
-              className="group overflow-hidden rounded-[1.8rem] border border-[#d8c1a2]/10 bg-[#12171b]"
+              className="rounded-[1.25rem] border border-[#d8c1a2]/10 bg-[#171d22] p-6"
             >
-              <div className={`flex h-64 items-end bg-gradient-to-br ${project.gradient} p-7`}>
-                <div className="w-full">
-                  <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/80">
-                    {project.type}
-                  </div>
-                  <h3 className="mt-3 text-3xl font-black text-white">{project.title}</h3>
+              <div className="mb-6 flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#d8c1a2]/20 bg-[#d8c1a2]/10 text-lg font-black text-[#f3efe8]">
+                  0{index + 1}
                 </div>
+                <h3 className="text-2xl font-black text-white">{item.title}</h3>
               </div>
-
-              <div className="p-7">
-                <p className="text-base leading-8 text-[#c7c0b9]">{project.description}</p>
-
-                <div className="mt-6 flex items-center justify-between border-t border-[#d8c1a2]/10 pt-4">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#d4b796]">
-                    {project.year}
-                  </span>
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d8c1a2]/15 bg-[#d8c1a2]/5 text-lg text-white">
-                    →
-                  </div>
-                </div>
-              </div>
-            </motion.article>
+              <p className="text-base leading-8 text-[#c7c0b9]">{item.text}</p>
+            </motion.div>
           ))}
         </div>
       </div>
